@@ -33,6 +33,7 @@
 					</ul>
 					<ul class="icons">
 						<li><a href="https://www.instagram.com/kunodlk/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/KunoDLK" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 					</ul>
 				</nav>
 
@@ -50,19 +51,19 @@
 								</ul>
 									<h1>Connect 4 java project</h1>
 								</header>
-								<p>As a part of my computer sciance A-Level I had to make a java project call the "NEA" (no idea what that stands for). The NEA is worth 20% of my final grade so it's esental to work hard on it and get a good grade for it. Thankfully i did the majory of the coding durning my summer holiday leaving me to gradualy finish it over my final year without a final rush to finish it.</p>
-								<P>This is my larges project to date with +300hrs of work that has gone in coding this. However it is my first full size coding project so i am sure if i was to redo it it would only take me 50hrs or so, but hey i enjoyed every minet of it so i'm not complaining.</P>
+								<p>As a part of my computer science A-Level I had to make a java project called the "NEA" (no idea what that stands for). The NEA is worth 20% of my final grade so it's esential to work hard on it and get a good grade for it. Thankfully I did the majory of the coding during my summer holiday leaving me to gradually finish it over my final year without a final rush to finish it.</p>
+								<P>This is my largest project to date with +300hrs of work that has gone into coding this. However it is my first full size coding project so I am sure that if I were to redo it, it would only take me 50hrs or so, but hey I enjoyed every minute of it so I'm not complaining.</P>
 								<h2>The AIM:</h2>
-								<p>I had the flexibily to make any project i wanted within reason (Thank you teacher). Chosing the right project is very important for somthing that's supost to show your ability. Too hard and you don't finish, but too easy it's too simple. In the end I chose Connect 4 beacuse wiht this game i can create the simple game easly but then i can make an AI oponent that can be as complex as i have time for.</p>
-								<p>There was quite o few hoops i had to jump though because it was a school project but to make this a fun story i am just going to talk about the interst coding and the funny bugs that happeren.</p>
-								<p>(I wanted to do a 2D light ray tracer which i still would like to do in the future but not a good thing for my first project)</p>
+								<p>I had the flexibility to make any project I wanted within reason (Thank you teacher). Choosing the right project is very important for somthing that's supposed to show your ability. Too hard and you don't finish, but too easy it's too simple. In the end I chose Connect 4 because with this game I can create the simple game easily but then I can make an AI oponent that can be as complex as I have time for.</p>
+								<p>There was quite a few hoops that I had to jump through because it was a school project but to make this a fun story I am just going to talk about the intersting coding and the funny bugs that happened.</p>
+								<p>(I wanted to do a 2D light ray tracer which I still would like to do in the future but not a good thing for my first project)</p>
 								<h2>Part 1, Making The Base game:</h2>
-								<p>If you don't know what Connect 4 is then fine i will explain:</p>
-								<p>Connect 4 is two player game where each player takes it in turn to drop there counter in to the vertical board. The aim of the game is to get 4 counter in a row (horisontal, vertical or diagonaly)</p>
+								<p>If you don't know what Connect 4 is then fine I will explain:</p>
+								<p>Connect 4 is two player game where each player takes it in turn to drop their counter in to the vertical board. The aim of the game is to get 4 counters in a row (horizontal, vertical or diagonally)</p>
 								<h3>Time To Start Coding:</h3>
-								<p>To start things off I used a 2D array of strings as the game board data type so i could easly print the board to the console. I then wrote a simple algorthm for placing the counter in the lowest posible (To emulate gravity). Did it work first time? Ovcore not but with a nice helping of debuging the simple game was working. The game didn't know if someone wins and crashed if you try to do anything not intended, But that is fine at this point.</p>
+								<p>To start things off I used a 2D array of strings as the game board data type so I could easly print the board to the console. I then wrote a simple algorithm for placing the counter in the lowest posible cell (To emulate gravity). Did it work first time? Of course not but with a nice helping of debuging the simple game was working. The game didn't know if someone wins and crashed if you try to do anything not intended, But that is fine at this point.</p>
 								<h2>Part 2, Making The Game winnable:</h2>
-								<p> First off i needed to know if a player has won or not. So I write an algorthm that looks at every counter and every direction around it to see if there is 4 counters in a row. This is the algorthm i come up with:</p>
+								<p> First off I needed to know if a player has won or not. So I write an algorithm that looks at every counter and every direction around it to see if there is 4 counters in a row. This is the algorthm I came up with:</p>
 <pre><code>for every column on the board
 	for: every counter in this column
 		store the "counter type" at this position
@@ -85,25 +86,17 @@
 			if: "chain length" >= 4
 				return "counter type"
 return null</code></pre>
-<p>Now armed with this algorth i am able to detect win/loss. So add it to the main game loop so the game will end when somone wins. After a good time in the "debug zone" the orginal game with two players works and i now have to figure out how to make a game AI</p>
+<p>Now armed with this algorithm I am able to detect win/loss. So add it to the main game loop so the game will end when someone wins. After a good time in the "debug zone" the orginal game with two players works and I now have to figure out how to make a game AI</p>
 <h2>Part 3, Making A Game AI:</h2>
-<p>Now using my fine research skills on the perfect algorthm for my AI. I searched long and hard and In the end i desided on the MiniMax algorthm</p>
+<p>Now using my fine research skills on the perfect algorithm for my AI. I searched long and hard and in the end I decided on the MiniMax algorithm</p>
 <div class="image main"><img src="images/NEA_research.png" alt="" /></div>
+<p>*incomplete story*</p>
 </section>
 					</div>
 
 				<!-- Footer -->
 				<footer id="footer">
 					<section class="split contact">
-						<section class="alt">
-							<h3>Address</h3>
-							<p>--redacted--<br />
-								<a href="https://www.google.com/maps/place/Stockton-on-Tees/@54.5546891,-1.3731278,12z/data=!3m1!4b1!4m5!3m4!1s0x487e931ee6d44e31:0x30cf99eed6fa0b0!8m2!3d54.5704542!4d-1.3289672">Stockton-on-Tees, England</a></p>
-						</section>
-						<section>
-							<h3>Phone</h3>
-							<p>--unavailable--</p>
-						</section>
 						<section>
 							<h3>Email</h3>
 							<p>kunodlk@gmail.com</p>
@@ -112,6 +105,7 @@ return null</code></pre>
 							<h3>Social</h3>
 							<ul class="icons alt">							
 								<li><a href="https://www.instagram.com/kunodlk/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/KunoDLK" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 							</ul>
 						</section>
 					</section>
