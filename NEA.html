@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<link rel="icon" type="image/png"
+ href="images/icon.png">
+<html>
+	<head>
+		<title>KunoDLK</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Kuno DLK</a>
+					</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="aboutme.html">About me</a></li>
+						<li class="active"><a href="">story time</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/kunodlk/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+				
+					<div id="main">
+
+						
+						<!-- Post -->
+						<section class="post">
+							<header class="major">
+								<span class="date">Date</span>
+								<ul class="actions">
+									<li><a href="index.html" class="button primary">Go Back</a></li>
+								</ul>
+									<h1>Connect 4 java project</h1>
+								</header>
+								<p>As a part of my computer sciance A-Level I had to make a java project call the "NEA" (no idea what that stands for). The NEA is worth 20% of my final grade so it's esental to work hard on it and get a good grade for it. Thankfully i did the majory of the coding durning my summer holiday leaving me to gradualy finish it over my final year without a final rush to finish it.</p>
+								<P>This is my larges project to date with +300hrs of work that has gone in coding this. However it is my first full size coding project so i am sure if i was to redo it it would only take me 50hrs or so, but hey i enjoyed every minet of it so i'm not complaining.</P>
+								<h2>The AIM:</h2>
+								<p>I had the flexibily to make any project i wanted within reason (Thank you teacher). Chosing the right project is very important for somthing that's supost to show your ability. Too hard and you don't finish, but too easy it's too simple. In the end I chose Connect 4 beacuse wiht this game i can create the simple game easly but then i can make an AI oponent that can be as complex as i have time for.</p>
+								<p>There was quite o few hoops i had to jump though because it was a school project but to make this a fun story i am just going to talk about the interst coding and the funny bugs that happeren.</p>
+								<p>(I wanted to do a 2D light ray tracer which i still would like to do in the future but not a good thing for my first project)</p>
+								<h2>Part 1, Making The Base game:</h2>
+								<p>If you don't know what Connect 4 is then fine i will explain:</p>
+								<p>Connect 4 is two player game where each player takes it in turn to drop there counter in to the vertical board. The aim of the game is to get 4 counter in a row (horisontal, vertical or diagonaly)</p>
+								<h3>Time To Start Coding</h3>
+								<p>To start things off I used a 2D array of strings as the game board data type so i could easly print the board to the console. I then wrote a simple algorthm for placing the counter in the lowest posible (To emulate gravity). Did it work first time? Ovcore not but with a nice helping of debuging the simple game was working. The game didn't know if someone wins and crashed if you try to do anything not intended, But that is fine at this point.</p>
+								<h2>Part 2, Making The Game Smart</h2>
+								<p> First off i needed to know if a player has won or not. So I write an algorthm that looks at every counter and every direction around it to see if there is 4 counters in a row. This is the algorthm i come up with:</p>
+<pre><code>for every column on the board
+	for: every counter in this column
+		store the "counter type" at this position
+		for: every positive direction
+			start a "chain length" counter
+			while: this counter type = "counter type"
+				step forward in that direction on board
+				if: this counter type = "counter type"
+					increase the counter
+				else:
+					break out of while loop
+			move back to starting position
+			invert the direction
+			while: this counter type = "counter type"
+				step forward in that direction on board
+				if: this counter type = "counter type"
+					increase the counter
+				else:
+					break out of while loop
+			if: "chain length" >= 4
+				return "counter type"
+return null</code></pre>
+							</section>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>--redacted--<br />
+								<a href="https://www.google.com/maps/place/Stockton-on-Tees/@54.5546891,-1.3731278,12z/data=!3m1!4b1!4m5!3m4!1s0x487e931ee6d44e31:0x30cf99eed6fa0b0!8m2!3d54.5704542!4d-1.3289672">Stockton-on-Tees, England</a></p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p>--unavailable--</p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p>kunodlk@gmail.com</p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">							
+								<li><a href="https://www.instagram.com/kunodlk/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+			<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>&copy; KunoDLK</li><li>link: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">click here</a></li></ul>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
