@@ -116,7 +116,29 @@ return null</code></pre>
 				<p>Now using my fine research skills on the perfect algorithm for my AI. I searched long and hard and in
 					the end I decided on the MiniMax algorithm</p>
 				<div class="image main"><img src="images/NEA_research.png" alt="" /></div>
+				<p>The interesting part of the minimax algorithm is that is assumes that the opponent is perfect.
+					However, the opponent in this case is a human and unfortunately humans are not perfect (Programmers
+					use debuggers for a reason). This will give make the AI do seemingly random moves, however this is
+					not the case. It is comprehending more then our human minds can.</p>
+				<p>This high level comes at a large cost, Computation time. Each move has 7 possibilities so if I want
+					to compute 3 moves ahead.</p>
+				<header class="major">
+					<h3>#outcomes = 7^3 = 343</h3>
+				</header>
+				<p>Ok cool, 343 that’s not that many a computer could crunch those number in a blink in a eye. Now let’s
+					say that I find the AI too easy so I double the amount of moves ahead that it calculates. How many
+					moves do you think it has to calculate now? 2 Times the amount? 4 Times?</p>
+				<header class="major">
+					<h4>*Calculator clicking* 7^6 *presses enter* =117,649</h4>
+				</header>
+				<p>117,649!!! That is 343 times more! The reason for this is because of the Big O notation of with
+					algorithm is O(n!). To put this in perspective I times one number by 2, the program goes from a
+					blink of an eye to 8 seconds of waiting.</p>
+				<p>So what the solution to the problem? (i hear you ask in my imagination). Hold your horsees, queue the next section...</p>
+				<h2>The next section: Multithreading</h2>
+				<p>There are many elegent ways of improving the basic minimax algorthm. However...I wanted to try Multithreading (when i told my teacher this he laghed and said "good luck")</p>
 				<p>*incomplete story*</p>
+				<div class="image main"><img src="images/NEA_paperstack.jpg" alt="" /></div>
 				<header class="major">
 					<a onclick="window.history.back();" class="button primary">Go Back</a>
 				</header>
