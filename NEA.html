@@ -50,7 +50,7 @@
 			<!-- Post -->
 			<section class="post">
 				<header class="major">
-					<span class="date">Date</span>
+					<span class="date">March 2021</span>
 					<h1>Connect 4 java project</h1>
 					<h4><a href="https://github.com/KunoDLK/Website"><u>Source Code here</u></a></h4>
 				</header>
@@ -109,23 +109,25 @@
 			if: "chain length" >= 4
 				return "counter type"
 return null</code></pre>
-				<p>Now armed with this algorithm I am able to detect win/loss. So add it to the main game loop so the
+				<p>Now armed with this algorithm I am able to detect win/loss. So I added it to the main game loop so
+					the
 					game will end when someone wins. After a good time in the "debug zone" the orginal game with two
-					players works and I now have to figure out how to make a game AI</p>
+					players works and I now have to figure out how to make a game AI.</p>
 				<h2>Part 3, Making A Game AI:</h2>
 				<p>Now using my fine research skills on the perfect algorithm for my AI. I searched long and hard and in
-					the end I decided on the MiniMax algorithm</p>
+					the end I decided on the MiniMax algorithm.</p>
 				<div class="image main"><img src="images/NEA_research.png" alt="" /></div>
 				<p>The interesting part of the minimax algorithm is that is assumes that the opponent is perfect.
 					However, the opponent in this case is a human and unfortunately humans are not perfect (Programmers
-					use debuggers for a reason). This will give make the AI do seemingly random moves, however this is
-					not the case. It is comprehending more then our human minds can.</p>
-				<p>This high level comes at a large cost, Computation time. Each move has 7 possibilities so if I want
+					use debuggers for a reason). This will make the AI do seemingly random moves, however this is
+					not the case. It is comprehending more than our human minds can.</p>
+				<p>This high level comes at a large cost, computation time. Each move has 7 possibilities so if I want
 					to compute 3 moves ahead.</p>
 				<header class="major">
 					<h3>#outcomes = 7^3 = 343</h3>
 				</header>
-				<p>Ok cool, 343 that’s not that many a computer could crunch those number in a blink in a eye. Now let’s
+				<p>Ok cool, 343 that’s not that many a computer could crunch those number in a blink of an eye. Now
+					let’s
 					say that I find the AI too easy so I double the amount of moves ahead that it calculates. How many
 					moves do you think it has to calculate now? 2 Times the amount? 4 Times?</p>
 				<header class="major">
@@ -134,21 +136,52 @@ return null</code></pre>
 				<p>117,649!!! That is 343 times more! The reason for this is because of the Big O notation of with
 					algorithm is O(n!). To put this in perspective I times one number by 2, the program goes from a
 					blink of an eye to 8 seconds of waiting.</p>
-				<p>So what the solution to the problem? (i hear you ask in my imagination). Hold your horsees, queue the
+				<p>So what is the solution to the problem? (I hear you ask in my imagination). Hold your horses, queue
+					the
 					next section...</p>
 				<h2>The next section: Multithreading</h2>
-				<p>There are many elegent ways of improving the basic minimax algorthm. However...I wanted to try
-					Multithreading (when i told my teacher this he laghed and said "good luck")</p>
-				<p>At this point i had a for loop that runs the MiniMax algorithm on each posible move. So i desided to
-					atempt to multi thread the program at this point. The reason for this is that the for loop was doing
-					the exsact same thing 7 times over so i could split the program to do the 7 things at the same time
+				<p>There are many elegent ways of improving the basic minimax algorithm. However...I wanted to try
+					Multithreading (when I told my teacher this he laughed and said, "good luck").</p>
+				<p>At this point I had a for loop that runs the MiniMax algorithm on each posible move. So I decided to
+					attempt to multi thread the program at this point. The reason for this is that the for loop was
+					doing
+					the exact same thing 7 times over so I could split the program to do the 7 things at the same time.
 				</p>
-				<p>To be honest at this point I had no idea what i was doing so I had to watch several java
-					Multithreading tutorials on youtube. In the end i had a "ok" undersanding on Multithreading and i
-					started to transfer the MiniMax algorithm</p>
-				<p>*incomplete story*</p>
-				<div class="image main"><img src="images/NEA_paperstack.jpg" alt="" /></div>
+				<p>To be honest at this point I had no idea what I was doing so I had to watch several Java
+					Multithreading tutorials on youtube. In the end I had an "ok" undersanding on Multithreading and I
+					started to transfer the MiniMax algorithm. Used two counters on for the number of threads that have
+					started and one for the number that have finished. I can use the difference between these two
+					numbers
+					to calculate the number of currently running threads. I used this with a basic if statement to limit
+					the number of concurent threads to a number so my processor wouldn't get overwhelmed with work.</p>
+
+				<p>I used the <code>implements Runnable</code> built in to Java, after an hour it turns out I only
+					needed 3
+					lines in the <code>run()</code> subroutine:</p>
+				<pre><code>public void run() {
+       
+	// Runs the mini max algorthm
+	scores[Integer.valueOf(node)] = 
+	minimax(node, game_Board, stack_Array, depth, isMaximizingPlayer);
+		
+	// Adds up the total number considered
+	totalConsidered += considered;
+		
+	// incress the thread completed counter
+	ThreadsCompleted++;
+}</code></pre>
+				<p>This class extends the main AI class that keeps track of the amount of threads completed. This means
+					this class can directly access the counter.</p>
+				<h2>Concusion</h2>
+				<p>So I finished it (yay), and it works. Unfortunately I can't beat it. For those speed concerns, typically on my average laptop the program can
+					calculate 7 moves ahead in under a second. I tried playing my program against the worlds best and it lost,
+					but two moves before the end there was level playing. So I am very happy.</p>
+				<p>I enjoyed writing this so much I can't wait for my next project. You can find the source code <a
+						href="https://github.com/KunoDLK/Website"><u>here</u></a>
+					and don't forget "Instant isn't a coffee", have a great day.</p>
 				<header class="major">
+					<h4>My whole code and write up printed out (98 pages):</h4>
+					<div class="image main"><img src="images/NEA_paperstack.jpg" alt="" /></div>
 					<a onclick="window.history.back();" class="button primary">Go Back</a>
 				</header>
 			</section>
