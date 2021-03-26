@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<link rel="icon" type="../image/png" href="../images/icon.png">
+<html>
+
+<head>
+	<title>KunoDLK</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo">Kuno DLK</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../about.html">About</a></li>
+				<li><a href="../projects.html">Projects</a></li>
+				<li><a href="../vintage.html">Vintage</a></li>
+
+			</ul>
+			<ul class="icons">
+				<li><a href="https://www.instagram.com/kunodlk/" class="icon brands fa-instagram"><span
+							class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/KunoDLK" class="icon brands fa-github"><span
+							class="label">GitHub</span></a></li>
+				<li><a href="https://discord.gg/ryMFPUXXTt" class="icon brands fa-discord"><span
+							class="label">Discord</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+
+		<div id="main">
+
+
+			<!-- Post -->
+			<section class="post">
+				<header class="major">
+					<span class="date">March 2021</span>
+					<h1>Connect 4 java project</h1>
+					<h4><a href="https://github.com/KunoDLK/Website"><u>Source Code here</u></a></h4>
+				</header>
+				<p>As a part of my computer science A-Level I had to make a java project called the "NEA" (no idea what
+					that stands for). The NEA is worth 20% of my final grade so it's esential to work hard on it and get
+					a good grade for it. Thankfully I did the majory of the coding during my summer holiday leaving me
+					to gradually finish it over my final year without a final rush to finish it.</p>
+				<P>This is my largest project to date with +300hrs of work that has gone into coding this. However it is
+					my first full size coding project so I am sure that if I were to redo it, it would only take me
+					50hrs or so, but hey I enjoyed every minute of it so I'm not complaining.</P>
+				<h2>The AIM:</h2>
+				<p>I had the flexibility to make any project I wanted within reason (Thank you teacher). Choosing the
+					right project is very important for somthing that's supposed to show your ability. Too hard and you
+					don't finish, but too easy it's too simple. In the end I chose Connect 4 because with this game I
+					can create the simple game easily but then I can make an AI oponent that can be as complex as I have
+					time for.</p>
+				<p>There was quite a few hoops that I had to jump through because it was a school project but to make
+					this a fun story I am just going to talk about the intersting coding and the funny bugs that
+					happened.</p>
+				<p>(I wanted to do a 2D light ray tracer which I still would like to do in the future but not a good
+					thing for my first project)</p>
+				<h2>Part 1, Making The Base game:</h2>
+				<p>If you don't know what Connect 4 is then fine I will explain:</p>
+				<p>Connect 4 is two player game where each player takes it in turn to drop their counter in to the
+					vertical board. The aim of the game is to get 4 counters in a row (horizontal, vertical or
+					diagonally)</p>
+				<h3>Time To Start Coding:</h3>
+				<p>To start things off I used a 2D array of strings as the game board data type so I could easly print
+					the board to the console. I then wrote a simple algorithm for placing the counter in the lowest
+					posible cell (To emulate gravity). Did it work first time? Of course not but with a nice helping of
+					debuging the simple game was working. The game didn't know if someone wins and crashed if you try to
+					do anything not intended, But that is fine at this point.</p>
+				<h2>Part 2, Making The Game winnable:</h2>
+				<p> First off I needed to know if a player has won or not. So I write an algorithm that looks at every
+					counter and every direction around it to see if there is 4 counters in a row. This is the algorthm I
+					came up with:</p>
+				<pre><code>for every column on the board
+	for: every counter in this column
+		store the "counter type" at this position
+		for: every positive direction
+			start a "chain length" counter
+			while: this counter type = "counter type"
+				step forward in that direction on board
+				if: this counter type = "counter type"
+					increase the counter
+				else:
+					break out of while loop
+			move back to starting position
+			invert the direction
+			while: this counter type = "counter type"
+				step forward in that direction on board
+				if: this counter type = "counter type"
+					increase the counter
+				else:
+					break out of while loop
+			if: "chain length" >= 4
+				return "counter type"
+return null</code></pre>
+				<p>Now armed with this algorithm I am able to detect win/loss. So I added it to the main game loop so
+					the
+					game will end when someone wins. After a good time in the "debug zone" the orginal game with two
+					players works and I now have to figure out how to make a game AI.</p>
+				<h2>Part 3, Making A Game AI:</h2>
+				<p>Now using my fine research skills on the perfect algorithm for my AI. I searched long and hard and in
+					the end I decided on the MiniMax algorithm.</p>
+				<div class="image main"><img src="../images/NEA_research.png" alt="" /></div>
+				<p>The interesting part of the minimax algorithm is that is assumes that the opponent is perfect.
+					However, the opponent in this case is a human and unfortunately humans are not perfect (Programmers
+					use debuggers for a reason). This will make the AI do seemingly random moves, however this is
+					not the case. It is comprehending more than our human minds can.</p>
+				<p>This high level comes at a large cost, computation time. Each move has 7 possibilities so if I want
+					to compute 3 moves ahead.</p>
+				<header class="major">
+					<h3>#outcomes = 7^3 = 343</h3>
+				</header>
+				<p>Ok cool, 343 that’s not that many a computer could crunch those number in a blink of an eye. Now
+					let’s
+					say that I find the AI too easy so I double the amount of moves ahead that it calculates. How many
+					moves do you think it has to calculate now? 2 Times the amount? 4 Times?</p>
+				<header class="major">
+					<h4>*Calculator clicking* 7^6 *presses enter* =117,649</h4>
+				</header>
+				<p>117,649!!! That is 343 times more! The reason for this is because of the Big O notation of with
+					algorithm is O(n!). To put this in perspective I times one number by 2, the program goes from a
+					blink of an eye to 8 seconds of waiting.</p>
+				<p>So what is the solution to the problem? (I hear you ask in my imagination). Hold your horses, queue
+					the
+					next section...</p>
+				<h2>The next section: Multithreading</h2>
+				<p>There are many elegent ways of improving the basic minimax algorithm. However...I wanted to try
+					Multithreading (when I told my teacher this he laughed and said, "good luck").</p>
+				<p>At this point I had a for loop that runs the MiniMax algorithm on each posible move. So I decided to
+					attempt to multi thread the program at this point. The reason for this is that the for loop was
+					doing
+					the exact same thing 7 times over so I could split the program to do the 7 things at the same time.
+				</p>
+				<p>To be honest at this point I had no idea what I was doing so I had to watch several Java
+					Multithreading tutorials on youtube. In the end I had an "ok" undersanding on Multithreading and I
+					started to transfer the MiniMax algorithm. Used two counters on for the number of threads that have
+					started and one for the number that have finished. I can use the difference between these two
+					numbers
+					to calculate the number of currently running threads. I used this with a basic if statement to limit
+					the number of concurent threads to a number so my processor wouldn't get overwhelmed with work.</p>
+
+				<p>I used the <code>implements Runnable</code> built in to Java, after an hour it turns out I only
+					needed 3
+					lines in the <code>run()</code> subroutine:</p>
+				<pre><code>public void run() {
+       
+	// Runs the mini max algorthm
+	scores[Integer.valueOf(node)] = 
+	minimax(node, game_Board, stack_Array, depth, isMaximizingPlayer);
+		
+	// Adds up the total number considered
+	totalConsidered += considered;
+		
+	// incress the thread completed counter
+	ThreadsCompleted++;
+}</code></pre>
+				<p>This class extends the main AI class that keeps track of the amount of threads completed. This means
+					this class can directly access the counter.</p>
+				<h2>Concusion</h2>
+				<p>So I finished it (yay), and it works. Unfortunately I can't beat it. For those speed concerns,
+					typically on my average laptop the program can
+					calculate 7 moves ahead in under a second. I tried playing my program against the worlds best and it
+					lost,
+					but two moves before the end there was level playing. So I am very happy.</p>
+				<p>I enjoyed writing this so much I can't wait for my next project. You can find the source code <a
+						href="https://github.com/KunoDLK/Website"><u>here</u></a>
+					and don't forget "Instant isn't a coffee", have a great day.</p>
+				<header class="major">
+					<h4>My whole code and write up printed out (98 pages):</h4>
+					<div class="image main"><img src="../images/NEA_paperstack.jpg" alt="" /></div>
+					<a onclick="window.history.back();" class="button primary">Go Back</a>
+				</header>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>kunodlk@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.instagram.com/kunodlk/" class="icon brands alt fa-instagram"><span
+									class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/KunoDLK" class="icon brands fa-github"><span
+									class="label">GitHub</span></a></li>
+						<li><a href="https://discord.gg/ryMFPUXXTt" class="icon brands fa-discord"><span
+									class="label">Discord</a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; KunoDLK</li>
+				<li>link: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">click here</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
